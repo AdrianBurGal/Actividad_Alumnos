@@ -1,13 +1,30 @@
+
 package Alumno;
 
 /**
- * Alumno.java
- * Definición de la clase Alumno
- * @author Luis José Sánchez
+ * Alumno.java Definición de la clase Alumno
+ *
+ * @author Adrián Burgos Gálvez
  */
-
 public class Alumno {
-  public String nombre;
-  public double notaMedia = 0.0;
-  
+
+    private String nombre;
+    private double nota;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+
 }
