@@ -1,3 +1,4 @@
+
 package alumnos;
 
 import Alumno.Alumno;
@@ -5,47 +6,44 @@ import Alumno.Alumno;
 import java.util.Scanner;
 
 public class Alumnos {
-    
-  public static void main(String[] args) {
-      
-    Scanner entrada = new Scanner(System.in);
-    Alumno[] alum = new Alumno[5];
-   
-    
-    System.out.println("A continuacion debera introducir el nombre y la nota media de 5 alumnos.");
 
-    String nombreIntroducido;
-    double notaIntroducida;
-    
-    for(int i = 0; i < 5; i++) {
-      
-      alum[i] = new Alumno();          
-      System.out.println("Alumno " + i);
-      System.out.print("Nombre: ");
-      nombreIntroducido = entrada.nextLine();
-      (alum[i]).setNombre(nombreIntroducido);
-      System.out.print("Nota media: ");
-      notaIntroducida = Double.parseDouble(entrada.nextLine());
-      alum[i].setNota(notaIntroducida);
-      
+    public static void main(String[] args) {
+
+        double notaIntroducida, sumaDeMedias = 0;
+        String nombreIntroducido;
+        Alumno[] alumno = new Alumno[5];
+
+        Scanner entrada = new Scanner(System.in);
+
+        System.out.println("A continuación debera introducir el nombre y la nota de los 5 alumnos.");
+
+        for (int numAlumno = 1; numAlumno <= 5; numAlumno++) {
+
+            alumno[numAlumno] = new Alumno();
+
+            System.out.println("Alumno " + numAlumno);
+            System.out.print("Nombre: ");
+            nombreIntroducido = entrada.nextLine();
+            (alumno[numAlumno]).setNombre(nombreIntroducido);
+            System.out.print("Nota media: ");
+            notaIntroducida = Double.parseDouble(entrada.nextLine());
+            alumno[numAlumno].setNota(notaIntroducida);
+
+        }
+
+        System.out.println("Los datos introducidos son los siguientes:");
+
+        for (int numAlumno = 1; numAlumno <= 5; numAlumno++) {
+
+            System.out.println("Alumno " + numAlumno);
+            System.out.println("Nombre: " + alumno[numAlumno].getNombre());
+            System.out.println("Nota media: " + alumno[numAlumno].getNota());
+            System.out.println("----------------------------");
+
+            sumaDeMedias += alumno[numAlumno].getNota();
+
+        }
+
+        System.out.println("La media global de la clase es " + sumaDeMedias / 5);
     }
-    
-    System.out.println("Los datos introducidos son los siguientes:");
-
-    double sumaDeMedias = 0;
-    
-    for(int i = 0; i < 5; i++) {
-        
-      System.out.println("Alumno " + i);  
-      System.out.println("Nombre: " + alum[i].getNombre());    
-      System.out.println("Nota media: " + alum[i].getNota());
-      System.out.println("----------------------------");
-
-      sumaDeMedias += alum[i].getNota();
-      
-    } 
-    
-    System.out.println("La media global de la clase es " + sumaDeMedias / 5);
-    
-  }
 }
